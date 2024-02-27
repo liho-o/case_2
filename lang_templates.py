@@ -8,10 +8,10 @@ lang_lbr = {
     },
     '2': {
         '1': 'Choose metal\n',
-        '2': 'Enter how many metals\n',
+        '2': 'Enter mass of the metal:\n',
         '3': 'You can get: ',
         '4': 'grams',
-        '5': 'Missing elements'
+        '5': 'Missing elements:'
     }
 
 }
