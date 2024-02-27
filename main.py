@@ -15,7 +15,7 @@ def main(lang, metal, neto):
     for alloy in ferum.alloys[lang]:
         local_alloy = ferum.alloys[lang][alloy]
         local_alloy_neto = local_alloy[metal]
-        #print(neto, local_alloy_neto)
+        # print(neto, local_alloy_neto)
         total_alloy_neto = neto / local_alloy_neto
         print(f'{lang_lbr[lang]["3"]}', alloy, total_alloy_neto, f'{lang_lbr[lang]["4"]}')
         print(f'{lang_lbr[lang]["5"]}')
@@ -26,10 +26,9 @@ def main(lang, metal, neto):
             request = total_alloy_neto * metal_koef
             print(matireal, ' --- ', request)
 
-        #print(total_alloy_neto, end='\n\n')
+        # print(total_alloy_neto, end='\n\n')
 
 
 if __name__ == '__main__':
     lang, metal, neto = previos()
     main(lang, metal, neto)
-
