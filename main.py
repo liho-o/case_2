@@ -15,10 +15,11 @@ def main(lang, metal, neto):
     for alloy in ferum.alloys[lang]:
         local_alloy = ferum.alloys[lang][alloy]
         local_alloy_neto = local_alloy[metal]
-        # print(neto, local_alloy_neto)
         total_alloy_neto = neto / local_alloy_neto
+
         print(f'{lang_lbr[lang]["3"]}', alloy, total_alloy_neto, f'{lang_lbr[lang]["4"]}')
         print(f'{lang_lbr[lang]["5"]}')
+
         for matireal in ferum.alloys[lang][alloy]:
             if metal == matireal:
                 continue
