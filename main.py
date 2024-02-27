@@ -26,7 +26,7 @@ def main(lang, metal, neto):
             request = total_alloy_neto * metal_koef
             print(matireal, ' --- ', request)
 
-        # print(total_alloy_neto, end='\n\n')
+        print('')
 
 
 if __name__ == '__main__':
