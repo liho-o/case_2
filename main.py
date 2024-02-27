@@ -1,3 +1,7 @@
+# Part of case-study #2: Alloys
+# Developer: Solodovnik A., Kabanova M., Soknyshev D., Kim A.
+#
+
 import lang_templates
 import ferum
 
