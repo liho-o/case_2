@@ -12,16 +12,16 @@ def previos():
 
 
 def main(lang, metal, neto):
-    for alloy in ferum.alloys:
+    for alloy in ferum.alloys[lang]:
         print(alloy)
-        local_alloy = ferum.alloys[alloy]
+        local_alloy = ferum.alloys[lang][alloy]
         local_alloy_neto = local_alloy[metal]
         print(neto, local_alloy_neto)
         total_alloy_neto = neto / local_alloy_neto
-        for matireal in ferum.alloys[alloy]:
+        for matireal in ferum.alloys[lang][alloy]:
             if metal == matireal:
                 continue
-            metal_koef = ferum.alloys[alloy][matireal]
+            metal_koef = ferum.alloys[lang][alloy][matireal]
             request = total_alloy_neto * metal_koef
             print(matireal, ' --- ', request)
 
@@ -31,9 +31,4 @@ def main(lang, metal, neto):
 if __name__ == '__main__':
     lang, metal, neto = previos()
     main(lang, metal, neto)
-
-
-
-
-
 
