@@ -34,15 +34,16 @@ def main(lang, metal, neto):
     if metal == 'fe':
         main_dict = ferum
 
-    if metal == 'cu':
+    elif metal == 'cu':
         main_dict = cuprum
 
-    if metal == 'ni':
+    elif metal == 'ni':
         main_dict = nickel
 
     else:
         print(f'{lang_lbr[lang]["0"]}')
         return
+
     main_calculations(lang, metal, neto, main_dict)
 
 
