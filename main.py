@@ -13,57 +13,37 @@ def previous():  # Requesting user input
     return lang, metal, neto
 
 
+def main_calculations(lang, metal, neto, main_dict):
+    for alloy in main_dict.alloys[lang]:
+        local_alloy = main_dict.alloys[lang][alloy]  # Alloys for this metal
+        local_alloy_neto = local_alloy[metal]  # Adresses percentage of metal for alloy
+        total_alloy_neto = round(neto / local_alloy_neto, 2)  # Counting final alloy mass
+
+        print(f'{lang_lbr[lang]["3"]} {alloy} {total_alloy_neto} {lang_lbr[lang]["4"]}')
+        print(f'{lang_lbr[lang]["5"]}')
+
+        for material in main_dict.alloys[lang][alloy]:  # Cycle for missing elements
+            if metal == material:
+                continue
+            metal_koef = main_dict.alloys[lang][alloy][material]  # Adresses percentage of missing for alloy
+            request = round(total_alloy_neto * metal_koef, 2)  # Counting missing elements
+            print(material, ' --- ', request, end='\n')
+
 def main(lang, metal, neto):
     if metal == 'fe':
-        for alloy in ferum.alloys[lang]:
-            local_alloy = ferum.alloys[lang][alloy]  # Alloys for this metal
-            local_alloy_neto = local_alloy[metal]  # Adresses percentage of metal for alloy
-            total_alloy_neto = round(neto / local_alloy_neto, 2)  # Counting final alloy mass
-
-            print(f'{lang_lbr[lang]["3"]} {alloy} {total_alloy_neto} {lang_lbr[lang]["4"]}')
-            print(f'{lang_lbr[lang]["5"]}')
-
-            for material in ferum.alloys[lang][alloy]:  # Cycle for missing elements
-                if metal == material:
-                    continue
-                metal_koef = ferum.alloys[lang][alloy][material]  # Adresses percentage of missing for alloy
-                request = round(total_alloy_neto * metal_koef, 2)  # Counting missing elements
-                print(material, ' --- ', request)
-            print('')
+        main_dict = ferum
 
     if metal == 'cu':
-        for alloy in cuprum.alloys[lang]:
-            local_alloy = cuprum.alloys[lang][alloy]  # Alloys for this metal
-            local_alloy_neto = local_alloy[metal]  # Adresses percentage of metal for alloy
-            total_alloy_neto = round(neto / local_alloy_neto, 2)  # Counting final alloy mass
-
-            print(f'{lang_lbr[lang]["3"]} {alloy} {total_alloy_neto} {lang_lbr[lang]["4"]}')
-            print(f'{lang_lbr[lang]["5"]}')
-
-            for material in cuprum.alloys[lang][alloy]:  # Cycle for missing elements
-                if metal == material:
-                    continue
-                metal_koef = cuprum.alloys[lang][alloy][material]  # Adresses percentage of missing for alloy
-                request = round(total_alloy_neto * metal_koef, 2)  # Counting missing elements
-                print(material, ' --- ', request)
-            print('')
+        main_dict = cuprum
 
     if metal == 'ni':
-        for alloy in nickel.alloys[lang]:
-            local_alloy = nickel.alloys[lang][alloy]  # Alloys for this metal
-            local_alloy_neto = local_alloy[metal]  # Adresses percentage of metal for alloy
-            total_alloy_neto = round(neto / local_alloy_neto, 2)  # Counting final alloy mass
+        main_dict = nickel
 
-            print(f'{lang_lbr[lang]["3"]} {alloy} {total_alloy_neto} {lang_lbr[lang]["4"]}')
-            print(f'{lang_lbr[lang]["5"]}')
+    else:
+        print(f'{lang_lbr[lang]["0"]}')
+        return
+    main_calculations(lang, metal, neto, main_dict)
 
-            for material in nickel.alloys[lang][alloy]:  # Cycle for missing elements
-                if metal == material:
-                    continue
-                metal_koef = nickel.alloys[lang][alloy][material]  # Adresses percentage of missing for alloy
-                request = round(total_alloy_neto * metal_koef, 2)  # Counting missing elements
-                print(material, ' --- ', request)
-            print('')
 
 
 if __name__ == '__main__':  # Run only if this file is active
