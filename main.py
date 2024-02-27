@@ -1,3 +1,7 @@
+# Part of case-study #2: Alloys
+# Developer: Solodovnik A., Kim A., Kabanova M., Soknyshev D.
+#
+
 import lang_templates
 import ferum
 import cuprum
@@ -45,7 +49,6 @@ def main(lang, metal, neto):
         return
 
     main_calculations(lang, metal, neto, main_dict)
-
 
 
 if __name__ == '__main__':  # Run only if this file is active
