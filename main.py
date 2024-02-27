@@ -29,6 +29,7 @@ def main_calculations(lang, metal, neto, main_dict):
             request = round(total_alloy_neto * metal_koef, 2)  # Counting missing elements
             print(material, ' --- ', request, end='\n')
 
+
 def main(lang, metal, neto):
     if metal == 'fe':
         main_dict = ferum
