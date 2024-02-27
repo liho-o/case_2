@@ -64,7 +64,6 @@ def main(lang, metal, neto):
             print('')
 
 
-
 if __name__ == '__main__':
     lang, metal, neto = previos()
     main(lang, metal, neto)
